@@ -1,0 +1,505 @@
+* {
+	        box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	
+	font-family: verdana, sans-serif;
+	
+	 -webkit-text-size-adjust: none;
+}
+
+a img {
+	
+	border: 0;
+	
+}
+
+body {
+	margin: 0;
+	padding: 0;
+
+	background: #CEDFF3;
+
+	font-family: "Helvetica Neue", HelveticaNeue, "Helvetica-Neue", Helvetica, "BBAlpha Sans", sans-serif;
+	font-size: 14px;
+	
+	max-width: 900px;
+	
+
+}
+
+header, section, footer {
+	margin: 12px;
+	box-shadow: 0px 0px 4px #000;
+	-webkit-box-shadow: 0px 0px 4px #000;
+	
+	overflow: hidden;
+}
+
+header h1, header nav a,
+section h2, section nav a,
+footer h1, footer nav a, footer h3 {
+	background: #fff;
+}
+
+header h1, footer h1, footer h3 {
+	text-align: center;
+}
+
+	header h1 a, footer h1 a, footer h3 a {
+		
+		color: white;
+		text-decoration: none;
+		
+		display: block;
+		
+	}
+	
+	header h1 a.icon, footer h1 a.icon, footer h3 a.icon {
+		
+		display: inline;
+		color: inherit;
+		
+	}
+
+header h1, section h2, footer h1, footer h3 {
+	background: #98ccfe;
+	background: -moz-linear-gradient(top, #98ccfe 0%, #5c8cbc 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#98ccfe), color-stop(100%,#5c8cbc));
+	background: -webkit-linear-gradient(top, #98ccfe 0%,#5c8cbc 100%);
+	background: -o-linear-gradient(top, #98ccfe 0%,#5c8cbc 100%);
+	background: -ms-linear-gradient(top, #98ccfe 0%,#5c8cbc 100%);
+	background: linear-gradient(top, #98ccfe 0%,#5c8cbc 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#98ccfe', endColorstr='#5c8cbc',GradientType=0 );
+	
+	overflow: hidden;
+}
+
+header h1, section h2, footer h1, footer h3 {
+	height: 46px;
+	margin: 0;
+	padding-left: 10px;
+
+	line-height: 46px;
+	color: #fff;
+	text-shadow: 1px 1px 1px #000;
+
+	font-size: 110%;
+	
+}
+
+	header h1 a img, section h2 a img, footer h1 a img , footer h3 a img {
+		
+		vertical-align: text-bottom;
+		
+	}
+
+	section h2 {
+		
+		width: 1000px;
+		
+	}
+
+header nav, section nav, footer nav, section article, header article, footer article {
+	
+	overflow: hidden;	
+}
+
+	header nav > a,
+	section nav > a,
+	footer nav > a,
+	section nav > .pagerNav,
+	footer nav > .pagerNav,
+	header nav > .pagerNav,
+	section article > div,
+	header article > div,
+	footer article > div,
+	label.pollOption {
+		display: block;
+		height: 44px;
+		padding-left: 10px;
+		border-top: 1px solid #ccc;
+	
+		line-height: 44px;
+		color: #222;
+		text-decoration: none;
+	
+		background: #eee;
+		
+		width: 1000px;
+		
+	}
+	
+		label.pollOption {
+			
+			line-height: normal;
+			height: auto;
+			
+			padding: 10px;
+			
+			width: auto;
+			max-width: 100%;
+			
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;	
+			
+		}
+		
+			label.pollOption div.bar {
+				
+				float: left;
+				width: 266px;
+				
+			}
+		
+			label.pollOption input {
+				
+				float: left;
+				margin: 5px 15px 10px 0;
+				
+				vertical-align: middle;
+				
+			}
+	
+			label.pollOption.selected {
+				
+				font-weight: bold;
+				background: #e5e5e5;
+				
+				border-bottom: 2px solid #ccc;
+				border-top: 2px solid #ccc;
+				
+			}
+	
+		img.avatar {
+			
+			position: relative;
+			top: 6px;
+			
+			max-width: 50px;
+			max-height: 32px;
+			
+		}
+	
+		nav a.sticky {
+			
+			font-weight: bold;
+			background: #e5e5e5;
+			
+			border-bottom: 1px solid #ccc;
+			
+		}
+	
+		nav a.moderator {
+		
+			background-color: #ccdded;
+		}
+	
+		.autoWidth {
+			
+			width: auto; padding-right: 10px;
+			
+		}
+		
+		nav a.disabled {
+			
+			text-decoration: line-through;
+			
+		}
+	
+		section article > div.message, header article > div.message, footer article > div.message {
+			
+			line-height: normal;
+			height: auto;
+			
+			padding: 10px;
+			
+			width: auto;
+			max-width: 100%;
+			
+			background: white;
+			
+			overflow-x: auto;
+						
+		}
+		
+			section article > div.message img, header article > div.message img, footer article > div.message img {
+				
+				max-width: 100%;
+				
+			}
+			
+			
+			section article > div.message a, header article > div.message a, footer article > div.message a {
+			
+				color: #336699;				
+				
+			}
+			
+			article a.button {
+				
+				-webkit-appearance:none;
+				
+				
+				display: inline-block;
+				line-height: normal;
+				background: rgb(255, 255, 255);
+				border-radius: 3px;
+				padding: 4px;
+				color: black;
+				text-decoration: none;
+				box-shadow: 0px 0px 2px #000;
+				-webkit-box-shadow: 0px 0px 2px #000;
+				
+				
+				border: 0;
+				
+				color: black !important;
+				
+				margin: 5px 0;
+				
+			}
+			
+			article > div a.icon {
+			
+				color: #336699;
+				text-decoration: none;			
+				
+			}
+			
+				article > div a.icon img {
+					
+					vertical-align: text-bottom;
+					
+				}
+		
+		section article > div.error, header article > div.error, footer article > div.error {
+			
+			background-color: #F2CECD;
+			
+		}
+	
+		header nav > a:first-child, section nav > a:first-child, footer nav > a:first-child {
+			border-top: 0px;
+			height: 43px;
+		}
+		
+		/*
+		header nav > a > *, section nav > a > *, footer nav > a > *, section nav > .pagerNav > * {
+			
+			white-space: nowrap;
+			
+		}
+		*/
+
+header nav a span:hover, section nav a span:hover, footer nav a span:hover {
+	text-decoration: underline;
+}
+
+header nav a:hover, section nav a:hover, footer nav a:hover {
+	background: #ddd;
+}
+
+/*
+section nav .pager, footer nav .pager, header nav .pager {
+	
+	display: inline-block;
+
+	border: 1px solid #000;
+	
+	line-height: normal;
+
+	background: #def;
+	border-radius: 3px;
+	
+	padding: 4px;
+	
+	
+	color: black;
+	text-decoration: none;
+	
+}
+
+*/
+section nav .pager, footer nav .pager, header nav .pager {
+
+	display: inline-block;
+	line-height: normal;
+	background: rgb(255, 255, 255);
+	border-radius: 3px;
+	padding: 4px;
+	color: black;
+	text-decoration: none;
+	box-shadow: 0px 0px 3px #000;
+	-webkit-box-shadow: 0px 0px 3px #000;
+	
+}
+
+	section nav .pagerText, footer nav .pagerText, header nav .pagerText {
+		
+		
+		display: inline-block;
+				
+		line-height: normal;
+		
+		padding: 4px;
+		
+		
+		color: black;
+		text-decoration: none;
+		
+	}
+	
+
+	footer nav .pagerNav, header nav .pagerNav {
+		
+		text-align: center;
+		width: auto;
+		
+		padding-left: 0;
+		
+	}
+
+	section nav a.pager:hover, footer nav a.pager:hover, header nav a.pager:hover {
+		
+		background-color: #B9D0E8;
+		
+	}
+	
+	section nav > .pagerNav a:first-child, footer nav > .pagerNav a:first-child, header nav > a.pgerNav a:first-child {
+		
+		/*border-top: 1px solid black !important;*/
+		height: auto !important;
+		
+	}
+
+section nav a div, section nav a > a:first-child,
+header nav a div, header nav a > a:first-child {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #000;
+	vertical-align: -2px;
+
+	background: #def;
+	border-radius: 3px;
+	margin-right: 10px;
+}
+
+	section nav a.child, header nav a.child {
+		
+		padding-left: 43px;
+		
+	}
+	
+	section nav a div.new, header nav a div.new {
+		background: #9cf;
+		box-shadow: 0px 0px 4px #69c;
+		-webkit-box-shadow: 0px 0px 4px #69c;
+	}
+	
+footer.advertisement {
+	
+	text-align: center;
+	height: 50px;
+	width: 320px;
+	
+	margin: auto;
+	
+}
+
+footer.copyright {
+	
+	text-align: center;	
+	font-size: 10px;
+	
+	border: 0;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	
+}	
+
+	footer.copyright a {
+		
+		background: none;
+		color: black;
+		
+	}
+	
+form input[type="submit"] {
+	
+	/*
+	padding: 4px;
+	
+	width: 100%;
+	
+	border: 1px solid black;
+	border-radius: 3px;
+	background: #DDEEFF;
+	
+	box-shadow: none;
+	
+	-webkit-box-shadow: none;
+	*/
+	
+	-webkit-appearance:none;
+	
+	
+	display: inline-block;
+	line-height: normal;
+	background: rgb(255, 255, 255);
+	border-radius: 3px;
+	padding: 4px;
+	color: black;
+	text-decoration: none;
+	box-shadow: 0px 0px 3px #000;
+	-webkit-box-shadow: 0px 0px 3px #000;
+	
+	
+	border: 0;
+	
+	width: 100%;
+	
+}
+
+	form input[type="submit"]:hover {
+		
+		background-color: #B9D0E8;	
+		
+	}
+	
+form input, textarea {
+	
+	font-size: 14px;
+	
+}
+	
+div.quoteheader, div.codeheader {
+	
+	font-size: 11px;
+	font-weight: bold;
+	
+	line-height: 20px;
+	
+	
+}
+	
+div.quote, div.code, div.phpcode {
+    border: 1px dashed black;
+    padding: 7px;
+    
+    margin-bottom: 1em;
+    
+    overflow: auto;
+    
+}
+
+	div.code, div.phpcode {
+	
+		background-color: #e4e4e4;
+		overflow: auto;
+		
+		max-height: 400px;
+		
+	}
+	
