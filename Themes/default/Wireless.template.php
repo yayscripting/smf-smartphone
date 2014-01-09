@@ -1795,7 +1795,7 @@ function template_smartphone_recent()
 		if (empty($context['topics']))
 		{
 
-			echo '<article><div class="message">', $txt[334], '</div></article>';
+			echo '<article><div class="pagerNav">', $txt[334], '</div></article>';
 
 		}else{
 
