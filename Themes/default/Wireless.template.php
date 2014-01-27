@@ -963,17 +963,17 @@ function template_smartphone_above()
 	  <head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
 	    <title>', $context['page_title'], '</title>
-	    <link rel="stylesheet" href="/smartphone/style.css?v1-3">
+	    <link rel="stylesheet" href="smartphone/style.css?v1-3">
 
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-	    <link rel="apple-touch-icon" href="/smartphone/smartphone_icon.png">
-	    <link rel="apple-touch-icon" sizes="144x144" href="/smartphone/smartphone_icon.png">
+	    <link rel="apple-touch-icon" href="smartphone/smartphone_icon.png">
+	    <link rel="apple-touch-icon" sizes="144x144" href="smartphone/smartphone_icon.png">
 
 	    <meta name="robots" content="noindex, nofollow" />
 
-	    <link rel="shortcut icon" type="image/x-icon" href="/Themes/dilbermc/favicon.ico" />
+	    <link rel="shortcut icon" type="image/x-icon" href="Themes/dilbermc/favicon.ico" />
 
 	    <script src="/smartphone/mobile.js?v1-5"></script>
 	    <script>var xGMOT_userId = "',$context['user']['id'],'";</script>
