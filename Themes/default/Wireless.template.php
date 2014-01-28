@@ -1471,6 +1471,13 @@ function template_smartphone_post()
 	      </header>
 	      </form>';
 
+    foreach ($context['previous_posts'] as $key=>$post) {
+        echo '<section><article>';
+        echo '<div>'.$post['poster'].', <small>'.$post['time'].'</small></div>';
+        echo '<div class="message">'.$post['message'].'</div>';
+        echo '</article></section>';
+    }
+    
 	echo '<footer>
 		<h3>', $txt['wireless_navigation'], '</h3>
 		<nav>
