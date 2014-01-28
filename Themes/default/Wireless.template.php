@@ -1074,7 +1074,7 @@ function template_smartphone_boardindex()
 
 	}
 
-	echo ($context['num_users_online'] > 0) ? $txt['who_and'] : '' , $context["num_guests"] . ' '.strtolower($txt["guest".(($context["num_guests"] == 1) ? '' : 's')]);
+	echo ($counter > 0) ? $txt['who_and'] : '' , $context["num_guests"] . ' '.strtolower($txt["guest".(($context["num_guests"] == 1) ? '' : 's')]);
 
 	echo '</div></article></footer>';
 
