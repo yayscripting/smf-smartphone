@@ -963,17 +963,17 @@ function template_smartphone_above()
 	  <head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
 	    <title>', $context['page_title'], '</title>
-	    <link rel="stylesheet" href="/smartphone/style.css?v1-3">
+	    <link rel="stylesheet" href="smartphone/style.css?v1-3">
 
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-	    <link rel="apple-touch-icon" href="/smartphone/smartphone_icon.png">
-	    <link rel="apple-touch-icon" sizes="144x144" href="/smartphone/smartphone_icon.png">
+	    <link rel="apple-touch-icon" href="smartphone/smartphone_icon.png">
+	    <link rel="apple-touch-icon" sizes="144x144" href="smartphone/smartphone_icon.png">
 
 	    <meta name="robots" content="noindex, nofollow" />
 
-	    <link rel="shortcut icon" type="image/x-icon" href="/Themes/dilbermc/favicon.ico" />
+	    <link rel="shortcut icon" type="image/x-icon" href="Themes/dilbermc/favicon.ico" />
 
 	    <script src="/smartphone/mobile.js?v1-5"></script>
 	    <script>var xGMOT_userId = "',$context['user']['id'],'";</script>
@@ -1074,7 +1074,7 @@ function template_smartphone_boardindex()
 
 	}
 
-	echo ($context['num_users_online'] > 0) ? $txt['who_and'] : '' , $context["num_guests"] . ' '.strtolower($txt["guest".(($context["num_guests"] == 1) ? '' : 's')]);
+	echo ($counter > 0) ? $txt['who_and'] : '' , $context["num_guests"] . ' '.strtolower($txt["guest".(($context["num_guests"] == 1) ? '' : 's')]);
 
 	echo '</div></article></footer>';
 
@@ -1471,6 +1471,13 @@ function template_smartphone_post()
 	      </header>
 	      </form>';
 
+    foreach ($context['previous_posts'] as $key=>$post) {
+        echo '<section><article>';
+        echo '<div>'.$post['poster'].', <small>'.$post['time'].'</small></div>';
+        echo '<div class="message">'.$post['message'].'</div>';
+        echo '</article></section>';
+    }
+    
 	echo '<footer>
 		<h3>', $txt['wireless_navigation'], '</h3>
 		<nav>
