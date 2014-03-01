@@ -1472,9 +1472,10 @@ function template_smartphone_post()
 	      </form>';
 
     foreach ($context['previous_posts'] as $key=>$post) {
+    	$message = smartphone_simplify_body($post['message'], $post['time']);
         echo '<section><article>';
-        echo '<div>'.$post['poster'].', <small>'.$post['time'].'</small></div>';
-        echo '<div class="message">'.$post['message'].'</div>';
+        echo '<div>'.$post['poster'].', <small>'.$message['time'].'</small></div>';
+        echo '<div class="message">'.$message['body'].'</div>';
         echo '</article></section>';
     }
     
