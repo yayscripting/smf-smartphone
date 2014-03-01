@@ -1854,7 +1854,14 @@ function template_smartphone_recent()
 		           !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 		      echo '</div>';
 		      if (($_REQUEST['action'] == 'unread') and (!isset($_REQUEST['all']))) {
-		            echo '<a href="', $content['links']['up'], '?action=unread;all;smartphone">', $txt['unread_topics_all'], '</a>';
+		            echo '<a href="', $scripturl, '?action=unread;all;smartphone">', $txt['unread_topics_all'], '</a>';
+		      }
+		      if (!empty($context['topics'])) {
+		      		if ($_REQUEST['action'] == 'unread') {
+		    			echo '<a href="', $scripturl, '?action=markasread;sa=all;sesc=', $context['session_id'] , ';smartphone">', $txt[452], '</a>';		      			
+		      		} else {
+		    			echo '<a href="', $scripturl, '?action=markasread;sa=unreadreplies;topics=' . $context['topics_to_mark'] . ';sesc=', $context['session_id'] , ';smartphone">', $txt[452], '</a>';
+		    		}
 		      }
 		      echo '<a href="', $context['links']['up'], '?;smartphone" accesskey="0">', $txt['wireless_navigation_up'], '</a>
 		      </nav>
