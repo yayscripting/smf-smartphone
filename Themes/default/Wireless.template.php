@@ -1182,7 +1182,7 @@ function template_smartphone_messageindex()
 	      <nav>';
 	      echo '<div class="pagerNav">';
 	      echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
-	            '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', $context['page_info']['num_pages'], '</div>',
+	            '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
 	           !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 	      echo '</div>';
 	echo '       <a href="', $context['links']['up'], ';smartphone" accesskey="0">', $txt['wireless_navigation_up'], '</a>
@@ -1217,7 +1217,7 @@ function template_smartphone_display()
 
 		echo '<div class="pagerNav">';
 		echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
-		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', $context['page_info']['num_pages'], '</div>',
+		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
 		    !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 		echo '</div>';
 
@@ -1367,7 +1367,7 @@ function template_smartphone_display()
 
 	echo '<div class="pagerNav">';
 	echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
-	     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', $context['page_info']['num_pages'], '</div>',
+	     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
 	    !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 	echo '</div>';
 
@@ -1726,7 +1726,7 @@ function template_smartphone_pm()
 
 		echo '<div class="pagerNav">';
 		echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
-		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', $context['page_info']['num_pages'], '</div>',
+		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
 		    !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 		echo '</div>';
 
@@ -1772,7 +1772,7 @@ function template_smartphone_pm()
 
 		echo '<div class="pagerNav">';
 		echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
-		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', $context['page_info']['num_pages'], '</div>',
+		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
 		    !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 		echo '</div>';
 
@@ -1849,7 +1849,7 @@ function template_smartphone_recent()
 		      <nav>';
 		      echo '<div class="pagerNav">';
 		      echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
-		            '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', $context['page_info']['num_pages'], '</div>',
+		            '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
 		           !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 		      echo '</div>';
 		echo '       <a href="', $context['links']['up'], '?;smartphone" accesskey="0">', $txt['wireless_navigation_up'], '</a>
