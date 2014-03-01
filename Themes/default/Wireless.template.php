@@ -1721,7 +1721,7 @@ function template_smartphone_pm()
 		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $txt['wireless_pm_inbox'], '</a></h1>
 		      <nav>
 		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
-
+		echo $context['can_send_pm'] ? '<a href="' . $scripturl . '?action=pm;sa=send;smartphone">' . $txt[321] . '</a>' : '';
 
 
 		echo '<div class="pagerNav">';
