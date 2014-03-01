@@ -1852,7 +1852,10 @@ function template_smartphone_recent()
 		            '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
 		           !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 		      echo '</div>';
-		echo '       <a href="', $context['links']['up'], '?;smartphone" accesskey="0">', $txt['wireless_navigation_up'], '</a>
+		      if (($_REQUEST['action'] == 'unread') and (!isset($_REQUEST['all']))) {
+		            echo '<a href="', $content['links']['up'], '?action=unread;all;smartphone">', $txt['unread_topics_all'], '</a>';
+		      }
+		      echo '<a href="', $context['links']['up'], '?;smartphone" accesskey="0">', $txt['wireless_navigation_up'], '</a>
 		      </nav>
 		    </footer>';
 
