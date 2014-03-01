@@ -252,10 +252,12 @@ function supports_html5_storage() {
 
 }
 
-var reloader = function () {
+function reloader() {
 
 	document.getElementById('reloader').innerHTML = 'Herladen...';
 
+	location.reload(true);
+	
 	return true;
 
 }
