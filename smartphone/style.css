@@ -509,3 +509,8 @@ div.quote, div.code, div.phpcode {
 		
 	}
 	
+	tt, pre, div.code *, div.phpcode * {
+
+		font-family: monospace;
+
+	}
