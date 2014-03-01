@@ -192,9 +192,15 @@ header nav, section nav, footer nav, section article, header article, footer art
 	
 		nav a.moderator {
 		
-			background-color: #ccdded;
+			background-color: #fdd;
 		}
-	
+
+		nav a.moderator:hover {
+			
+			background-color: #fbb;
+
+		}
+			
 		.autoWidth {
 			
 			width: auto; padding-right: 10px;
