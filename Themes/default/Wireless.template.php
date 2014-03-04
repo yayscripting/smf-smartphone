@@ -1472,9 +1472,10 @@ function template_smartphone_post()
 	      </form>';
 
     foreach ($context['previous_posts'] as $key=>$post) {
+    	$message = smartphone_simplify_body($post['message'], $post['time']);
         echo '<section><article>';
-        echo '<div>'.$post['poster'].', <small>'.$post['time'].'</small></div>';
-        echo '<div class="message">'.$post['message'].'</div>';
+        echo '<div>'.$post['poster'].', <small>'.$message['time'].'</small></div>';
+        echo '<div class="message">'.$message['body'].'</div>';
         echo '</article></section>';
     }
     
@@ -1721,7 +1722,7 @@ function template_smartphone_pm()
 		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $txt['wireless_pm_inbox'], '</a></h1>
 		      <nav>
 		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
-
+		echo $context['can_send_pm'] ? '<a href="' . $scripturl . '?action=pm;sa=send;smartphone">' . $txt[321] . '</a>' : '';
 
 
 		echo '<div class="pagerNav">';
@@ -1852,7 +1853,17 @@ function template_smartphone_recent()
 		            '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
 		           !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
 		      echo '</div>';
-		echo '       <a href="', $context['links']['up'], '?;smartphone" accesskey="0">', $txt['wireless_navigation_up'], '</a>
+		      if (($_REQUEST['action'] == 'unread') and (!isset($_REQUEST['all']))) {
+		            echo '<a href="', $scripturl, '?action=unread;all;smartphone">', $txt['unread_topics_all'], '</a>';
+		      }
+		      if (!empty($context['topics'])) {
+		      		if ($_REQUEST['action'] == 'unread') {
+		    			echo '<a href="', $scripturl, '?action=markasread;sa=all;sesc=', $context['session_id'] , ';smartphone">', $txt[452], '</a>';		      			
+		      		} else {
+		    			echo '<a href="', $scripturl, '?action=markasread;sa=unreadreplies;topics=' . $context['topics_to_mark'] . ';sesc=', $context['session_id'] , ';smartphone">', $txt[452], '</a>';
+		    		}
+		      }
+		      echo '<a href="', $context['links']['up'], '?;smartphone" accesskey="0">', $txt['wireless_navigation_up'], '</a>
 		      </nav>
 		    </footer>';
 
