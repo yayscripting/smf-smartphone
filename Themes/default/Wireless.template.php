@@ -1722,8 +1722,12 @@ function template_smartphone_pm()
 		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $txt['wireless_pm_inbox'], '</a></h1>
 		      <nav>
 		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
+		if (!isset($_GET['f'])) {
+			echo '<a href="' . $scripturl . '?action=pm;f=outbox;smartphone">' . $txt[320] . '</a>';
+		} else if ($_GET['f'] == 'outbox') {
+			echo '<a href="' . $scripturl . '?action=pm;smartphone">' . $txt[316] . '</a>';
+		}
 		echo $context['can_send_pm'] ? '<a href="' . $scripturl . '?action=pm;sa=send;smartphone">' . $txt[321] . '</a>' : '';
-
 
 		echo '<div class="pagerNav">';
 		echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
