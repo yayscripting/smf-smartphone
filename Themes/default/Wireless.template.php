@@ -1224,7 +1224,7 @@ function template_smartphone_display()
 		echo '      </nav>';
 		echo '    </header>';
 
-	if($context['is_poll']){
+	if($context['is_poll'] && $context['page_info']['current_page'] == 1){
 
 		$can_vote = true;
 		$can_change = ($context['poll']['change_vote'] == 1);
