@@ -1445,6 +1445,13 @@ function template_smartphone_post()
 {
 	global $context, $settings, $options, $scripturl, $txt;
 
+	echo '<header>
+			<h1>', $txt['wireless_navigation'], '</h1>',
+			'<nav>
+				<a href="/?smartphone" accesskey="0">', $txt[103], '</a>'
+		      	, ($context['current_topic'] != 0) ? '<a href="' . $scripturl . '?topic=' . $context['current_topic'] . '.new;smartphone">' . $txt['wireless_navigation_topic'] . '</a>' : '<a href="' . $scripturl . '?board=' . $context['current_board'] . '.0;smartphone" accesskey="0">' . $txt['wireless_navigation_index'] . '</a>', '
+			 </nav>
+		  </header>';
 
 	echo '<form action="', $scripturl, '?action=', $context['destination'], ';board=', $context['current_board'], '.0;smartphone" method="post">
 		<input type="hidden" name="icon" value="smartphone" />
@@ -1476,12 +1483,13 @@ function template_smartphone_post()
         echo '<div class="message">'.$message['body'].'</div>';
         echo '</article></section>';
     }
-    
+
 	echo '<footer>
-		<h3>', $txt['wireless_navigation'], '</h3>
-		<nav>
-			', ($context['current_topic'] != 0) ? '<a href="' . $scripturl . '?topic=' . $context['current_topic'] . '.new;smartphone">' . $txt['wireless_navigation_topic'] . '</a>' : '<a href="' . $scripturl . '?board=' . $context['current_board'] . '.0;smartphone" accesskey="0">' . $txt['wireless_navigation_index'] . '</a>', '
-		</nav>
+			<h3>', $txt['wireless_navigation'], '</h3>
+				<nav>
+					<a href="/?smartphone" accesskey="0">', $txt[103], '</a>
+					', ($context['current_topic'] != 0) ? '<a href="' . $scripturl . '?topic=' . $context['current_topic'] . '.new;smartphone">' . $txt['wireless_navigation_topic'] . '</a>' : '<a href="' . $scripturl . '?board=' . $context['current_board'] . '.0;smartphone" accesskey="0">' . $txt['wireless_navigation_index'] . '</a>', '
+				</nav>
 	      </footer>';
 }
 
