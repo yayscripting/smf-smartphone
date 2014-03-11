@@ -956,7 +956,7 @@ function template_wap2_below()
 // The HTML5 protocol used for smartphone starts here.
 function template_smartphone_above()
 {
-	global $context, $settings, $options;
+	global $context, $settings, $options, $user_info;
 
 	echo '<!DOCTYPE html>
 	<html', $context['right_to_left'] ? ' dir="rtl"' : '', '>
@@ -980,6 +980,7 @@ function template_smartphone_above()
 	  </head>
 	  <body>';
 
+	  $user_info['time_format'] = "%B %d, %Y, %H:%M"; //Change the time format for this pageload
 }
 
 function template_smartphone_boardindex()
@@ -1351,8 +1352,6 @@ function template_smartphone_display()
 		}
 	}
 
-	//var_dump($txt);
-
 	if($context['can_reply'])
 		echo '<footer>
 			<nav>
@@ -1407,7 +1406,6 @@ function template_smartphone_display()
 		$message['time'] = str_replace('<b>Vandaag</b> om', '', $message['time']);
 		$message['time'] = str_replace(' om ', ', ', $message['time']);
 		$message['time'] = str_replace(date("Y").', ', '', $message['time']);
-		$message['time'] = substr($message['time'], 0, strlen($message['time']) - 3);
 		$message['time'] = str_replace(array(
 						'Januari',
 						'Februari',
