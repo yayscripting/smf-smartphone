@@ -1245,10 +1245,10 @@ function template_smartphone_display()
 		      <article id="pollContents" style="display:none;">
 		      <div class="message">', $context['poll']['question'],'</div>';
 
-		      	//',((!$can_vote) ? $option['bar'] : ''),'
-		      	//<div class="bar" style="width: ',round($option['percent']),'px;">
-
 			foreach($context['poll']['options'] as $option){
+
+				$simplified_option = smartphone_simplify_body($option['option'], ''); //Ugly fix
+				$option['option'] = $simplified_option['body'];
 
 				echo '<label class="pollOption',($option['voted_this'] ? ' selected' : ''),'">',
 						(($can_vote)  ? $option['vote_button'] : ''), $option['option'], ((!$can_vote) ? ' (' . $option['percent'] . '%)' : '');
