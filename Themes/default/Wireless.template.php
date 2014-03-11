@@ -956,7 +956,7 @@ function template_wap2_below()
 // The HTML5 protocol used for smartphone starts here.
 function template_smartphone_above()
 {
-	global $context, $settings, $options;
+	global $context, $settings, $options, $user_info;
 
 	echo '<!DOCTYPE html>
 	<html', $context['right_to_left'] ? ' dir="rtl"' : '', '>
@@ -980,6 +980,7 @@ function template_smartphone_above()
 	  </head>
 	  <body>';
 
+	  $user_info['time_format'] = "%B %d, %Y, %H:%M"; //Change the time format for this pageload
 }
 
 function template_smartphone_boardindex()
@@ -1351,8 +1352,6 @@ function template_smartphone_display()
 		}
 	}
 
-	//var_dump($txt);
-
 	if($context['can_reply'])
 		echo '<footer>
 			<nav>
@@ -1407,7 +1406,6 @@ function template_smartphone_display()
 		$message['time'] = str_replace('<b>Vandaag</b> om', '', $message['time']);
 		$message['time'] = str_replace(' om ', ', ', $message['time']);
 		$message['time'] = str_replace(date("Y").', ', '', $message['time']);
-		$message['time'] = substr($message['time'], 0, strlen($message['time']) - 3);
 		$message['time'] = str_replace(array(
 						'Januari',
 						'Februari',
@@ -1722,8 +1720,12 @@ function template_smartphone_pm()
 		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $txt['wireless_pm_inbox'], '</a></h1>
 		      <nav>
 		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
+		if (!isset($_GET['f'])) {
+			echo '<a href="' . $scripturl . '?action=pm;f=outbox;smartphone">' . $txt[320] . '</a>';
+		} else if ($_GET['f'] == 'outbox') {
+			echo '<a href="' . $scripturl . '?action=pm;smartphone">' . $txt[316] . '</a>';
+		}
 		echo $context['can_send_pm'] ? '<a href="' . $scripturl . '?action=pm;sa=send;smartphone">' . $txt[321] . '</a>' : '';
-
 
 		echo '<div class="pagerNav">';
 		echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
@@ -1796,9 +1798,22 @@ function template_smartphone_recent()
 {
 	global $context, $settings, $options, $scripturl, $txt;
 
+
+		/* == header */
 		echo '<header>
 		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $_REQUEST['action'] == 'unread' ? $txt['wireless_recent_unread_posts'] : $txt['wireless_recent_unread_replies'], '</a></h1>';
 
+		echo '<nav>
+		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
+		echo '<div class="pagerNav">';
+		echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
+		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
+		    !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
+		echo '</div>';
+
+		echo '</nav>
+		      </header>';
+		echo '<section><h2>Topics</h2>';
 		$count = 0;
 		if (empty($context['topics']))
 		{
@@ -1826,7 +1841,7 @@ function template_smartphone_recent()
 
 		}
 
-		echo '    </header>';
+		echo '    </section>';
 
 
 		if(ADVERTISEMENTS === true){
