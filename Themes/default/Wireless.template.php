@@ -1920,10 +1920,15 @@ function template_smartphone_error()
 function template_smartphone_below()
 {
 	global $context, $settings, $options;
-
-	echo '<footer class="copyright">&copy; 2008-2013, GMOT.nl - Smartphone-GMOT Beta<br /><a target="_blank" href="http://www.simplemachines.org/about/copyright.php">SMF &copy; 2006-2011, Simple Machines</a></footer>';
+	
+	$noMobileURI = str_replace(array('?smartphone', '&smartphone', ';smartphone'), array('?', '', ''), $_SERVER['REQUEST_URI']);
 
 	?>
+	<footer class="copyright">
+		&copy; 2008-<?php echo date('Y'); ?>, GMOT.nl - Smartphone-GMOT<br />
+		<a target="_blank" href="http://www.simplemachines.org/about/copyright.php">SMF &copy; 2006-2011, Simple Machines</a><br />
+		<a href="<?php echo $noMobileURI; ?>">Dekstopversie bekijken</a>
+	</footer>
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
