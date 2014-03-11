@@ -1798,9 +1798,22 @@ function template_smartphone_recent()
 {
 	global $context, $settings, $options, $scripturl, $txt;
 
+
+		/* == header */
 		echo '<header>
 		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $_REQUEST['action'] == 'unread' ? $txt['wireless_recent_unread_posts'] : $txt['wireless_recent_unread_replies'], '</a></h1>';
 
+		echo '<nav>
+		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
+		echo '<div class="pagerNav">';
+		echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
+		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
+		    !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
+		echo '</div>';
+
+		echo '</nav>
+		      </header>';
+		echo '<section><h2>Topics</h2>';
 		$count = 0;
 		if (empty($context['topics']))
 		{
@@ -1828,7 +1841,7 @@ function template_smartphone_recent()
 
 		}
 
-		echo '    </header>';
+		echo '    </section>';
 
 
 		if(ADVERTISEMENTS === true){
