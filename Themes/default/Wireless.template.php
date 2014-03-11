@@ -1247,13 +1247,15 @@ function template_smartphone_display()
 
 		      	//',((!$can_vote) ? $option['bar'] : ''),'
 		      	//<div class="bar" style="width: ',round($option['percent']),'px;">
+
 			foreach($context['poll']['options'] as $option){
 
-				echo   '<label class="pollOption',($option['voted_this'] ? ' selected' : ''),'">
-						',(($can_vote)  ? $option['vote_button'] : ''),'
-						',$option['option'],'<br />
-						',((!$can_vote) ? $option['bar'] . '<br />' . $option['percent'] . '%' : ''), '
-					</label>';
+				echo '<label class="pollOption',($option['voted_this'] ? ' selected' : ''),'">',
+						(($can_vote)  ? $option['vote_button'] : ''), $option['option'], ((!$can_vote) ? ' (' . $option['percent'] . '%)' : '');
+						if (!$can_vote && $option['percent'] > 0) {
+							echo '<div class="bar" style="width: ', round($option['percent']), '%;"></div>';
+						}
+				echo '</label>';
 
 			}
 

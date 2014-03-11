@@ -147,9 +147,11 @@ header nav, section nav, footer nav, section article, header article, footer art
 		
 			label.pollOption div.bar {
 				
-				float: left;
+				margin-top: 5px;
 				width: 266px;
-				
+				background-color: red;
+				height: 12px;		
+
 			}
 		
 			label.pollOption input {
