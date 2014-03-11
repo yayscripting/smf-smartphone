@@ -1241,7 +1241,7 @@ function template_smartphone_display()
 		echo '<form action="', $scripturl, '?action=vote;topic=', $context['current_topic'], '.', $context['start'], ';poll=',$context['poll']['id'],';smartphone" method="post" accept-charset="ISO-8859-1">';
 		
 		echo '<header>
-		      <h1 data-onclick="reloader(this);" onclick="togglePoll(this)">Poll (uitklappen)</h1>
+		      <h1 class="pointer" data-onclick="reloader(this);" onclick="togglePoll(this)">Poll (uitklappen)</h1>
 		      <article id="pollContents" style="display:none;">
 		      <div class="message">', $context['poll']['question'],'</div>';
 
