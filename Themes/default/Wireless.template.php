@@ -1207,10 +1207,6 @@ function template_smartphone_display()
 {
 	global $context, $settings, $options, $scripturl, $board, $txt;
 
-	//var_dump($context);
-
-	//if($context['page_info']['num_pages'] > 1){
-
 		echo '<header>
 		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $context['page_title'], '</a></h1>
 		      <nav>';
@@ -1228,43 +1224,47 @@ function template_smartphone_display()
 		echo '      </nav>';
 		echo '    </header>';
 
-       // }
+	if($context['is_poll'] && $context['page_info']['current_page'] == 1){
 
+		$can_vote = true;
+		$can_change = ($context['poll']['change_vote'] == 1);
 
-	if($context['is_poll'] && 1 == 2){
+		if($context['poll']['has_voted'])
+			$can_vote = false;
 
+		if($context['poll']['is_expired'])
+			$can_vote = false;
+
+		if($context['poll']['is_locked'])
+			$can_vote = false;
 
 		echo '<form action="', $scripturl, '?action=vote;topic=', $context['current_topic'], '.', $context['start'], ';poll=',$context['poll']['id'],';smartphone" method="post" accept-charset="ISO-8859-1">';
+		
 		echo '<header>
-		      <h1>Poll</h1>
-		      <article>
+		      <h1 data-onclick="reloader(this);" onclick="togglePoll(this)">Poll (uitklappen)</h1>
+		      <article id="pollContents" style="display:none;">
 		      <div class="message">', $context['poll']['question'],'</div>';
-
-			$can_vote = true;
-
-			if($context['poll']['has_voted'])
-				$can_vote = false;
-
-			if($context['poll']['is_expired'])
-				$can_vote = false;
-
-			if($context['poll']['is_locked'])
-				$can_vote = false;
-
-
-		      	//',((!$can_vote) ? $option['bar'] : ''),'
-		      	//<div class="bar" style="width: ',round($option['percent']),'px;">
 
 			foreach($context['poll']['options'] as $option){
 
-				echo   '<label class="pollOption',($option['voted_this'] ? ' selected' : ''),'">
-						',(($can_vote)  ? $option['vote_button'] : ''),'
-						',$option['option'],'
-					</label>';
+				$simplified_option = smartphone_simplify_body($option['option'], ''); //Ugly fix
+				$option['option'] = $simplified_option['body'];
+
+				echo '<label class="pollOption',($option['voted_this'] ? ' selected' : ''),'">',
+						(($can_vote)  ? $option['vote_button'] : ''), $option['option'], ((!$can_vote) ? ' (' . $option['percent'] . '%)' : '');
+						if (!$can_vote && $option['percent'] > 0) {
+							echo '<div class="bar" style="width: ', round($option['percent']), '%;"></div>';
+						}
+				echo '</label>';
 
 			}
 
-
+			if ($can_vote) {
+				echo '<input type="hidden" name="sc" value="', $context['session_id'], '" />';
+				echo '<div class="autoWidth"><input type="submit" value="', $txt['smf23'], '"/></div>';
+			} else if ($can_change) {
+				echo '<div class="autoWidth"><a class="pollChange" href="', $scripturl, '?action=vote;topic=', $context['current_topic'], '.', $context['start'], ';poll=',$context['poll']['id'],';sesc=', $context['session_id'] ,';smartphone"/>', $txt['poll_change_vote'], '</a>';
+			}
 		echo '</article>';
 		echo '</header>';
 		echo '</form>';
@@ -1813,12 +1813,6 @@ function template_smartphone_recent()
 
 		echo '<nav>
 		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
-		echo '<div class="pagerNav">';
-		echo !empty($context['links']['prev']) ? '<a class="pager" href="' . $context['links']['first'] . ';smartphone">&lt;&lt;</a> <a class="pager" href="' . $context['links']['prev'] . ';smartphone">&nbsp;&nbsp;&lt;&nbsp;&nbsp;</a> ' : '',
-		     '<div class="pagerText">Pagina ', $context['page_info']['current_page'], '/', max($context['page_info']['num_pages'],1), '</div>',
-		    !empty($context['links']['next']) ? ' <a class="pager" href="' . $context['links']['next'] . ';smartphone">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</a> <a class="pager" href="' . $context['links']['last'] . ';smartphone">&gt;&gt;</a> ' : '';
-		echo '</div>';
-
 		echo '</nav>
 		      </header>';
 		echo '<section><h2>Topics</h2>';
