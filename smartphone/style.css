@@ -514,3 +514,10 @@ div.quote, div.code, div.phpcode {
 		font-family: monospace;
 
 	}
+
+	a.pollChange {
+
+		color: #369;
+		text-decoration: none;
+
+	}

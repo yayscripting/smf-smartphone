@@ -257,7 +257,21 @@ function reloader() {
 	document.getElementById('reloader').innerHTML = 'Herladen...';
 
 	location.reload(true);
-	
+
 	return true;
+
+}
+
+function togglePoll(header) {
+
+	var el;
+	el = document.getElementById('pollContents');
+	if (el.style.display == 'none') {
+		el.style.display = 'block';
+		header.innerHTML = 'Poll (inklappen)';
+	} else {
+		el.style.display = 'none';
+		header.innerHTML = 'Poll (uitklappen)';
+	}
 
 }
