@@ -1241,8 +1241,8 @@ function template_smartphone_display()
 		echo '<form action="', $scripturl, '?action=vote;topic=', $context['current_topic'], '.', $context['start'], ';poll=',$context['poll']['id'],';smartphone" method="post" accept-charset="ISO-8859-1">';
 		
 		echo '<header>
-		      <h1 class="pointer" data-onclick="reloader(this);" onclick="togglePoll(this)">Poll (uitklappen)</h1>
-		      <article id="pollContents" style="display:none;">
+		      <h1 id="pollHeader" class="pointer" onclick="togglePoll();">Poll (uitklappen)</h1>
+		      <article id="pollContents" data-pollid="', $context['current_topic'], '" style="display:none;">
 		      <div class="message">', $context['poll']['question'],'</div>';
 
 			foreach($context['poll']['options'] as $option){
@@ -1268,6 +1268,16 @@ function template_smartphone_display()
 		echo '</article>';
 		echo '</header>';
 		echo '</form>';
+		
+		?>
+		<script>
+		window.addEventListener("load", function(){
+		
+			checkPollState("<?php echo $context['current_topic']; ?>");
+		
+		});
+		</script>
+		<?
 
 
 	}

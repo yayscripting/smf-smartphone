@@ -272,16 +272,45 @@ function reloader() {
 
 }
 
-function togglePoll(header) {
+function togglePoll() {
 
-	var el;
-	el = document.getElementById('pollContents');
+	var el	   = document.getElementById('pollContents'),
+	    header = document.getElementById('pollHeader');
+	    
 	if (el.style.display == 'none') {
+	
 		el.style.display = 'block';
 		header.innerHTML = 'Poll (inklappen)';
+		
+		if (supports_html5_storage()) {
+		
+			console.log("poll_state_"+el.getAttribute('data-pollid'));
+			localStorage.setItem("poll_state_"+el.getAttribute('data-pollid'), "open");
+		
+		}
+		
 	} else {
+	
 		el.style.display = 'none';
 		header.innerHTML = 'Poll (uitklappen)';
+		
+		if (supports_html5_storage()) {
+		
+			console.log('closde');
+			localStorage.setItem("poll_state_"+el.getAttribute('data-pollid'), "close");
+		
+		}
+		
+	}
+
+}
+
+function checkPollState(poll){
+
+	if(localStorage.getItem("poll_state_"+poll) == "open"){
+	
+		togglePoll();
+	
 	}
 
 }
