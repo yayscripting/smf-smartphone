@@ -29,9 +29,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		var a = localStorage.getItem("fontSize");
 		
 		document.body.style.fontSize = a + "px";
-		
-		console.log(document.body.style.fontSize);
-	
+			
 	}
 
 	if (supports_html5_storage() && document.getElementById('settings')) {
@@ -284,7 +282,6 @@ function togglePoll() {
 		
 		if (supports_html5_storage()) {
 		
-			console.log("poll_state_"+el.getAttribute('data-pollid'));
 			localStorage.setItem("poll_state_"+el.getAttribute('data-pollid'), "open");
 		
 		}
@@ -296,7 +293,6 @@ function togglePoll() {
 		
 		if (supports_html5_storage()) {
 		
-			console.log('closde');
 			localStorage.setItem("poll_state_"+el.getAttribute('data-pollid'), "close");
 		
 		}
