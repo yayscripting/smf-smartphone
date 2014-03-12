@@ -1406,9 +1406,9 @@ function template_smartphone_display()
 		$message = array('body' => $body, 'time' => $time);
 
 		$message['body'] = preg_replace('/<div class="quoteheader"><a href="(.*?)#(.*?)">/mi', '<div class="quoteheader"><a href="$1;smartphone#$2">', $message['body']);
-		$message['body'] = preg_replace('/<img src="(.*?)" alt="(.*?)" width="(.*?)" height="(.*?)" border="0" \/>/mi', '<img src="$1" alt="$2" width="$3" border="0" />', $message['body']);
-		$message['body'] = preg_replace('/<img src="(.*?)" alt="(.*?)" width="(.*?)" border="0" \/>/mi', '<a href="javascript:void(-1);" onclick="loadImage(this);" class="imageLoader button" data-src="$1" data-alt="$2" data-width="$3" data-border="0">Afbeelding laden</a>', $message['body']);
-		$message['body'] = preg_replace('/<img src="(.*?)" alt="(.*?)" border="0" \/>/mi', '<a href="javascript:void(-1);" onclick="loadImage(this);" class="imageLoader button" data-src="$1" data-alt="$2" data-border="0">Afbeelding laden</a>', $message['body']);
+		$message['body'] = preg_replace('/<img src="([^"]*?)" alt="([^"]*?)" width="([^"]*?)" height="([^"]*?)" border="0" \/>/mi', '<img src="$1" alt="$2" width="$3" border="0" />', $message['body']);
+		$message['body'] = preg_replace('/<img src="([^"]*?)" alt="([^"]*?)" width="([^"]*?)" border="0" \/>/mi', '<a href="javascript:void(-1);" onclick="loadImage(this);" class="imageLoader button" data-src="$1" data-alt="$2" data-width="$3" data-border="0">Afbeelding laden</a>', $message['body']);
+		$message['body'] = preg_replace('/<img src="([^"]*?)" alt="([^"]*?)" border="0" \/>/mi', '<a href="javascript:void(-1);" onclick="loadImage(this);" class="imageLoader button" data-src="$1" data-alt="$2" data-border="0">Afbeelding laden</a>', $message['body']);
 
 		parsesmileys($message['body']);
 
