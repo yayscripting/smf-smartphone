@@ -1410,8 +1410,14 @@ function template_smartphone_display()
 		$message['body'] = preg_replace('/<img src="([^"]*?)" alt="([^"]*?)" width="([^"]*?)" border="0" \/>/mi', '<a href="javascript:void(-1);" onclick="loadImage(this);" class="imageLoader button" data-src="$1" data-alt="$2" data-width="$3" data-border="0">Afbeelding laden</a>', $message['body']);
 		$message['body'] = preg_replace('/<img src="([^"]*?)" alt="([^"]*?)" border="0" \/>/mi', '<a href="javascript:void(-1);" onclick="loadImage(this);" class="imageLoader button" data-src="$1" data-alt="$2" data-border="0">Afbeelding laden</a>', $message['body']);
 
-		parsesmileys($message['body']);
+		//Minimum font-size (<8pt --> 8pt & <11px --> 11px)
+		$message['body'] = preg_replace('/<span style="font-size: [0-7]pt; line-height: 1.3em;">/mi', '<span style="font-size: 8pt; line-height: 1.3em;">', $message['body']);
+		$message['body'] = preg_replace('/<span style="font-size: (([0-9])|(1[0|1]))px; line-height: 1.3em;">/mi', '<span style="font-size: 11px; line-height: 1.3em;">', $message['body']);
+		//Maximum font-size (>25pt --> 25pt & >35px --> 35px)
+		$message['body'] = preg_replace('/<span style="font-size: ((2[6-9])|([3-9][0-9]))pt; line-height: 1.3em;">/mi', '<span style="font-size: 25pt; line-height: 1.3em;">', $message['body']);
+		$message['body'] = preg_replace('/<span style="font-size: ((3[5-9])|([4-9][0-9]))px; line-height: 1.3em;">/mi', '<span style="font-size: 35px; line-height: 1.3em;">', $message['body']);
 
+		parsesmileys($message['body']);
 
 		$message['time'] = str_replace('<b>Vandaag</b> om', '', $message['time']);
 		$message['time'] = str_replace(' om ', ', ', $message['time']);
