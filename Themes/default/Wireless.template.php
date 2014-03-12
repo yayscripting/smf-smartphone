@@ -963,7 +963,7 @@ function template_smartphone_above()
 	  <head>
 	    <meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
 	    <title>', $context['page_title'], '</title>
-	    <link rel="stylesheet" href="smartphone/style.css?v1-3">
+	    <link rel="stylesheet" href="smartphone/style.css?v1-4">
 
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -975,7 +975,7 @@ function template_smartphone_above()
 
 	    <link rel="shortcut icon" type="image/x-icon" href="Themes/dilbermc/favicon.ico" />
 
-	    <script src="/smartphone/mobile.js?v1-5"></script>
+	    <script src="/smartphone/mobile.js?v1-6"></script>
 	    <script>var xGMOT_userId = "',$context['user']['id'],'";</script>
 	  </head>
 	  <body>';
@@ -1944,7 +1944,7 @@ function template_smartphone_below()
 	<footer class="copyright">
 		&copy; 2008-<?php echo date('Y'); ?>, GMOT.nl - Smartphone-GMOT<br />
 		<a target="_blank" href="http://www.simplemachines.org/about/copyright.php">SMF &copy; 2006-2011, Simple Machines</a><br />
-		<a href="<?php echo $noMobileURI; ?>">Dekstopversie bekijken</a>
+		<a href="<?php echo $noMobileURI; ?>" class="forceDekstop">Dekstopversie bekijken</a>
 	</footer>
 	<script type="text/javascript">
 

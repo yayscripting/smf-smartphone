@@ -185,36 +185,46 @@ window.addEventListener('DOMContentLoaded', function () {
 
 				a[i].onclick = function () {
 				
-					if(!this.search.match(/smartphone/)){
+				
+					if(this.className == "forceDekstop"){
 					
-						if(localStorage.getItem("askInsideURL") == "true" || confirm('Deze link gaat wel naar GMOT.nl maar niet naar de smartphone versie.\n\nWil je deze link in de smartphone versie openen?')){
+						window.location = this.getAttribute("href");
+						return false;					
+					
+					}else{
+					
+						if(!this.search.match(/smartphone/)){
 						
-							this.href = "http://www.gmot.nl" + this.pathname + this.search + ((this.search) ? ';' : '?') + 'smartphone' + this.hash;
-						
-						}else{
-						
-							return true;
+							if(localStorage.getItem("askInsideURL") == "true" || confirm('Deze link gaat wel naar GMOT.nl maar niet naar de smartphone versie.\n\nWil je deze link in de smartphone versie openen?')){
+							
+								this.href = "http://www.gmot.nl" + this.pathname + this.search + ((this.search) ? ';' : '?') + 'smartphone' + this.hash;
+							
+							}else{
+							
+								return true;
+							
+							}
 						
 						}
-					
-					}
-
-					var evalCode = this.getAttribute("data-onclick");
-
-					if (evalCode) {
-
-						var result = eval(evalCode);
-
-						if (!result) {
-
-							return false;
-
+	
+						var evalCode = this.getAttribute("data-onclick");
+	
+						if (evalCode) {
+	
+							var result = eval(evalCode);
+	
+							if (!result) {
+	
+								return false;
+	
+							}
+	
 						}
-
+	
+						window.location = this.getAttribute("href");
+						return false;
+						
 					}
-
-					window.location = this.getAttribute("href");
-					return false
 				}
 
 			}
