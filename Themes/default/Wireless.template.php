@@ -994,7 +994,7 @@ function template_smartphone_boardindex()
 
 	      if(!empty($context["random_news_line"])){
 
-		      $context["random_news_line"] = preg_replace('/<a href="http:\/\/www.gmot.nl\/([^"]*?)(#([^"]*?)|)">/mi', '<a href="$1;smartphone#$3">', $context["random_news_line"]);
+		      $context["random_news_line"] = preg_replace('/<a href="http:\/\/www.gmot.nl\/(.*?)(#(.*?)|)">/mi', '<a href="$1;smartphone#$3">', $context["random_news_line"]);
 
 		      echo '<article>
 		      	<div class="message"><strong>Nieuws: </strong>',$context["random_news_line"],'</div>
