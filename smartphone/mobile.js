@@ -29,9 +29,7 @@ window.addEventListener('DOMContentLoaded', function () {
 		var a = localStorage.getItem("fontSize");
 		
 		document.body.style.fontSize = a + "px";
-		
-		console.log(document.body.style.fontSize);
-	
+			
 	}
 
 	if (supports_html5_storage() && document.getElementById('settings')) {
@@ -185,36 +183,46 @@ window.addEventListener('DOMContentLoaded', function () {
 
 				a[i].onclick = function () {
 				
-					if(!this.search.match(/smartphone/)){
+				
+					if(this.className == "forceDekstop"){
 					
-						if(localStorage.getItem("askInsideURL") == "true" || confirm('Deze link gaat wel naar GMOT.nl maar niet naar de smartphone versie.\n\nWil je deze link in de smartphone versie openen?')){
+						window.location = this.getAttribute("href");
+						return false;					
+					
+					}else{
+					
+						if(!this.search.match(/smartphone/)){
 						
-							this.href = "http://www.gmot.nl" + this.pathname + this.search + ((this.search) ? ';' : '?') + 'smartphone' + this.hash;
-						
-						}else{
-						
-							return true;
+							if(localStorage.getItem("askInsideURL") == "true" || confirm('Deze link gaat wel naar GMOT.nl maar niet naar de smartphone versie.\n\nWil je deze link in de smartphone versie openen?')){
+							
+								this.href = "http://www.gmot.nl" + this.pathname + this.search + ((this.search) ? ';' : '?') + 'smartphone' + this.hash;
+							
+							}else{
+							
+								return true;
+							
+							}
 						
 						}
-					
-					}
-
-					var evalCode = this.getAttribute("data-onclick");
-
-					if (evalCode) {
-
-						var result = eval(evalCode);
-
-						if (!result) {
-
-							return false;
-
+	
+						var evalCode = this.getAttribute("data-onclick");
+	
+						if (evalCode) {
+	
+							var result = eval(evalCode);
+	
+							if (!result) {
+	
+								return false;
+	
+							}
+	
 						}
-
+	
+						window.location = this.getAttribute("href");
+						return false;
+						
 					}
-
-					window.location = this.getAttribute("href");
-					return false
 				}
 
 			}
@@ -262,16 +270,43 @@ function reloader() {
 
 }
 
-function togglePoll(header) {
+function togglePoll() {
 
-	var el;
-	el = document.getElementById('pollContents');
+	var el	   = document.getElementById('pollContents'),
+	    header = document.getElementById('pollHeader');
+	    
 	if (el.style.display == 'none') {
+	
 		el.style.display = 'block';
 		header.innerHTML = 'Poll (inklappen)';
+		
+		if (supports_html5_storage()) {
+		
+			localStorage.setItem("poll_state_"+el.getAttribute('data-pollid'), "open");
+		
+		}
+		
 	} else {
+	
 		el.style.display = 'none';
 		header.innerHTML = 'Poll (uitklappen)';
+		
+		if (supports_html5_storage()) {
+		
+			localStorage.setItem("poll_state_"+el.getAttribute('data-pollid'), "close");
+		
+		}
+		
+	}
+
+}
+
+function checkPollState(poll){
+
+	if(localStorage.getItem("poll_state_"+poll) == "open"){
+	
+		togglePoll();
+	
 	}
 
 }
