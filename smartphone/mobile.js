@@ -152,22 +152,29 @@ window.addEventListener('DOMContentLoaded', function () {
 
 		// instantImages
 		var b = localStorage.getItem("instantImages"),
-			c = document.getElementsByTagName("a");
+			c = document.getElementsByTagName("a"),
+			d = [];
 
 		if (b === "true") {
 
 			for (i in c) {
 			
 				if (typeof c[i] != "undefined" && typeof c[i].className != "undefined") {
-
+				
 					if (c[i].className.match(/imageLoader/g)) {
 
-						loadImage(c[i]);
+						d.push(c[i]);
 
 					}
 
 				}
 
+			}
+			
+			for(e in d){
+			
+				loadImage(d[e]);
+			
 			}
 
 		}
@@ -235,7 +242,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
 function loadImage(img) {
 
+	console.log('loading', img);
+
 	var image = document.createElement('img');
+	
 	image.setAttribute('src', img.getAttribute('data-src'));
 	image.setAttribute('alt', img.getAttribute('data-alt'));
 	image.setAttribute('border', img.getAttribute('data-border'));
