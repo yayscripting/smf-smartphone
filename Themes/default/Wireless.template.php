@@ -976,7 +976,7 @@ function template_smartphone_above()
 
 	    <link rel="shortcut icon" type="image/x-icon" href="Themes/dilbermc/favicon.ico" />
 
-	    <script src="/smartphone/mobile.js?v1-6"></script>
+	    <script src="/smartphone/mobile.js?v1-7"></script>
 	    <script>var xGMOT_userId = "',$context['user']['id'],'";</script>
 	  </head>
 	  <body>';
@@ -1470,7 +1470,7 @@ function template_smartphone_post()
 			 </nav>
 		  </header>';
 
-	echo '<form action="', $scripturl, '?action=', $context['destination'], ';board=', $context['current_board'], '.0;smartphone" method="post">
+	echo '<form action="', $scripturl, '?action=', $context['destination'], ';board=', $context['current_board'], '.0;smartphone" onsubmit="return submitting();" method="post">
 		<input type="hidden" name="icon" value="smartphone" />
 		<input type="hidden" name="goback" value="', $context['back_to_topic'] || !empty($options['return_to_post']) ? '1' : '0', '" />
 		<input type="hidden" name="seqnum" value="', $context['form_sequence_number'], '" />
@@ -1674,7 +1674,7 @@ function template_smartphone_pm()
 		{
 
 			/* == header */
-			echo '<form action="', $scripturl, '?action=pm;sa=send2;smartphone" method="post">
+			echo '<form action="', $scripturl, '?action=pm;sa=send2;smartphone" onsubmit="return submitting();" method="post">
 			      	<input type="hidden" name="outbox" value="', $context['copy_to_outbox'] ? '1' : '0', '" />
 			      	<input type="hidden" name="sc" value="', $context['session_id'], '" />
 			      	<input type="hidden" name="seqnum" value="', $context['form_sequence_number'], '" />

@@ -180,6 +180,17 @@ window.addEventListener('DOMContentLoaded', function () {
 		}
 
 	}
+	
+	// search for textareas
+	var textareas = document.getElementsByTagName("textarea");
+	
+	if(textareas.length > 0){
+	
+	
+		window.addEventListener("beforeunload", beforeUnload);	
+		
+	
+	}
 
 	if (iOS) {
 
@@ -239,6 +250,23 @@ window.addEventListener('DOMContentLoaded', function () {
 	}
 
 }, false);
+
+var beforeUnload = function (e) {
+
+	var event = (e || window.event);
+			
+	var confirmationMessage = "Weet je zeker dat je deze pagina wil verlaten?";
+	
+	event.returnValue = confirmationMessage;     //Gecko + IE
+	return confirmationMessage;                  //Webkit, Safari, Chrome etc.
+	
+}
+
+function submitting(){
+	
+	window.removeEventListener("beforeunload", beforeUnload);
+
+}
 
 function loadImage(img) {
 
