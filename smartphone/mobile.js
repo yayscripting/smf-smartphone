@@ -270,8 +270,6 @@ function submitting(){
 
 function loadImage(img) {
 
-	console.log('loading', img);
-
 	var image = document.createElement('img');
 	
 	image.setAttribute('src', img.getAttribute('data-src'));
