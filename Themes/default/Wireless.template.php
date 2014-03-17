@@ -967,6 +967,7 @@ function template_smartphone_above()
 
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 	    <link rel="apple-touch-icon" href="smartphone/smartphone_icon.png">
 	    <link rel="apple-touch-icon" sizes="144x144" href="smartphone/smartphone_icon.png">
