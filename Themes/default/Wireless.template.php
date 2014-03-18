@@ -1961,7 +1961,7 @@ function template_smartphone_below()
 	<footer class="copyright">
 		&copy; 2008-<?php echo date('Y'); ?>, GMOT.nl - Smartphone-GMOT<br />
 		<a target="_blank" href="http://www.simplemachines.org/about/copyright.php">SMF &copy; 2006-2011, Simple Machines</a><br />
-		<a href="<?php echo $noMobileURI; ?>" class="forceDekstop">Desktopversie bekijken</a>
+		<a href="redirect_mode.php?url=<?php echo urlencode($noMobileURI); ?>&mode=desktop" class="forceDekstop">Desktopversie bekijken</a>
 	</footer>
 	<script type="text/javascript">
 
