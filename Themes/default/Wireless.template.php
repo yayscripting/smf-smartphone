@@ -1391,10 +1391,10 @@ function template_smartphone_display()
 		<a href="', $scripturl, '?action=unreadreplies;smartphone">Nieuwe reacties</a>';
 
 	if($context['can_lock'])
-		 echo '<a class="moderator" href="', $scripturl, '?action=lock;topic=', $context['current_topic'], '.', $context['start'], ';sesc=', $context['session_id'], ';smartphone">',($context["is_locked"] ? $txt["smf280"] : $txt["smf279"]),'</a> ';
+		 echo '<a data-onclick="confirm(\'',($context["is_locked"] ? 'Slot verwijderen?' : 'Topic sluiten?'),'\');" onclick="return confirm(\'',($context["is_locked"] ? 'Slot verwijderen?' : 'Topic sluiten?'),'\');" class="moderator" href="', $scripturl, '?action=lock;topic=', $context['current_topic'], '.', $context['start'], ';sesc=', $context['session_id'], ';smartphone">',($context["is_locked"] ? $txt["smf280"] : $txt["smf279"]),'</a> ';
 
 	if($context['can_delete'])
-		 echo '<a class="moderator" data-onclick="confirm(\'', $txt[162], '?\');" onclick="return confirm(\'', $txt[162], '?\');" href="', $scripturl, '?action=removetopic2;topic=', $context['current_topic'], '.', $context['start'], ';sesc=', $context['session_id'], ';smartphone">',$txt[63],'</a> ';
+		 echo '<a data-onclick="confirm(\'Topic verwijderen?\');" onclick="return confirm(\'Topic verwijderen?\');" class="moderator" data-onclick="confirm(\'', $txt[162], '?\');" onclick="return confirm(\'', $txt[162], '?\');" href="', $scripturl, '?action=removetopic2;topic=', $context['current_topic'], '.', $context['start'], ';sesc=', $context['session_id'], ';smartphone">',$txt[63],'</a> ';
 
 
 	echo ' </nav>
