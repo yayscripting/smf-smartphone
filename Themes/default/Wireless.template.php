@@ -967,6 +967,7 @@ function template_smartphone_above()
 
 	    <meta name="apple-mobile-web-app-capable" content="yes">
 	    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 	    <link rel="apple-touch-icon" href="smartphone/smartphone_icon.png">
 	    <link rel="apple-touch-icon" sizes="144x144" href="smartphone/smartphone_icon.png">
@@ -975,7 +976,7 @@ function template_smartphone_above()
 
 	    <link rel="shortcut icon" type="image/x-icon" href="Themes/dilbermc/favicon.ico" />
 
-	    <script src="/smartphone/mobile.js?v1-6"></script>
+	    <script src="/smartphone/mobile.js?v1-7"></script>
 	    <script>var xGMOT_userId = "',$context['user']['id'],'";</script>
 	  </head>
 	  <body>';
@@ -1390,10 +1391,10 @@ function template_smartphone_display()
 		<a href="', $scripturl, '?action=unreadreplies;smartphone">Nieuwe reacties</a>';
 
 	if($context['can_lock'])
-		 echo '<a class="moderator" href="', $scripturl, '?action=lock;topic=', $context['current_topic'], '.', $context['start'], ';sesc=', $context['session_id'], ';smartphone">',($context["is_locked"] ? $txt["smf280"] : $txt["smf279"]),'</a> ';
+		 echo '<a data-onclick="confirm(\'',($context["is_locked"] ? $txt["smf280"] : $txt["smf279"]),'?\');" onclick="return confirm(\'',($context["is_locked"] ? $txt["smf280"] : $txt["smf279"]),'?\');" class="moderator" href="', $scripturl, '?action=lock;topic=', $context['current_topic'], '.', $context['start'], ';sesc=', $context['session_id'], ';smartphone">',($context["is_locked"] ? $txt["smf280"] : $txt["smf279"]),'</a> ';
 
 	if($context['can_delete'])
-		 echo '<a class="moderator" data-onclick="confirm(\'', $txt[162], '?\');" onclick="return confirm(\'', $txt[162], '?\');" href="', $scripturl, '?action=removetopic2;topic=', $context['current_topic'], '.', $context['start'], ';sesc=', $context['session_id'], ';smartphone">',$txt[63],'</a> ';
+		 echo '<a data-onclick="confirm(\'', $txt[162], '?\');" onclick="return confirm(\'', $txt[162], '?\');" class="moderator" href="', $scripturl, '?action=removetopic2;topic=', $context['current_topic'], '.', $context['start'], ';sesc=', $context['session_id'], ';smartphone">',$txt[63],'</a> ';
 
 
 	echo ' </nav>
@@ -1469,7 +1470,7 @@ function template_smartphone_post()
 			 </nav>
 		  </header>';
 
-	echo '<form action="', $scripturl, '?action=', $context['destination'], ';board=', $context['current_board'], '.0;smartphone" method="post">
+	echo '<form action="', $scripturl, '?action=', $context['destination'], ';board=', $context['current_board'], '.0;smartphone" onsubmit="return submitting();" method="post">
 		<input type="hidden" name="icon" value="smartphone" />
 		<input type="hidden" name="goback" value="', $context['back_to_topic'] || !empty($options['return_to_post']) ? '1' : '0', '" />
 		<input type="hidden" name="seqnum" value="', $context['form_sequence_number'], '" />
@@ -1673,7 +1674,7 @@ function template_smartphone_pm()
 		{
 
 			/* == header */
-			echo '<form action="', $scripturl, '?action=pm;sa=send2;smartphone" method="post">
+			echo '<form action="', $scripturl, '?action=pm;sa=send2;smartphone" onsubmit="return submitting();" method="post">
 			      	<input type="hidden" name="outbox" value="', $context['copy_to_outbox'] ? '1' : '0', '" />
 			      	<input type="hidden" name="sc" value="', $context['session_id'], '" />
 			      	<input type="hidden" name="seqnum" value="', $context['form_sequence_number'], '" />
@@ -1960,7 +1961,7 @@ function template_smartphone_below()
 	<footer class="copyright">
 		&copy; 2008-<?php echo date('Y'); ?>, GMOT.nl - Smartphone-GMOT<br />
 		<a target="_blank" href="http://www.simplemachines.org/about/copyright.php">SMF &copy; 2006-2011, Simple Machines</a><br />
-		<a href="<?php echo $noMobileURI; ?>" class="forceDekstop">Dekstopversie bekijken</a>
+		<a href="redirect_mode.php?url=<?php echo urlencode($noMobileURI); ?>&mode=desktop" class="forceDekstop">Desktopversie bekijken</a>
 	</footer>
 	<script type="text/javascript">
 
