@@ -1826,10 +1826,15 @@ function template_smartphone_recent()
 
 		/* == header */
 		echo '<header>
-		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $_REQUEST['action'] == 'unread' ? $txt['wireless_recent_unread_posts'] : $txt['wireless_recent_unread_replies'], '</a></h1>';
+		      <h1><a href="" data-onclick="reloader();" onclick="reloader();" id="reloader">', $_REQUEST['action'] == 'unread' ? (isset($_REQUEST['all']) ? $txt['unread_topics_all'] : $txt['wireless_recent_unread_posts']) : $txt['wireless_recent_unread_replies'], '</a></h1>';
 
 		echo '<nav>
 		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
+		if ($_REQUEST['action'] == 'unread') {
+			echo '<a href="?action=unreadreplies;smartphone">Nieuwe reacties</a>';
+		} else {
+			echo '<a href="?action=unread;smartphone">Nieuwe berichten</a>';
+		}
 		echo '</nav>
 		      </header>';
 		echo '<section><h2>Topics</h2>';
