@@ -1830,6 +1830,11 @@ function template_smartphone_recent()
 
 		echo '<nav>
 		      <a href="/?smartphone" accesskey="0">', $txt[103], '</a>';
+		if ($_REQUEST['action'] == 'unread') {
+			echo '<a href="?action=unreadreplies;smartphone">Nieuwe reacties</a>';
+		} else {
+			echo '<a href="?action=unread;smartphone">Nieuwe berichten</a>';
+		}
 		echo '</nav>
 		      </header>';
 		echo '<section><h2>Topics</h2>';
