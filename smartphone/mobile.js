@@ -255,7 +255,7 @@ var beforeUnload = function (e) {
 
 	var event = (e || window.event);
 			
-	var confirmationMessage = "Weet je zeker dat je deze pagina wil verlaten?";
+	var confirmationMessage = "Eventuele wijzigingen gaan verloren. Wil je deze pagina verlaten?";
 	
 	event.returnValue = confirmationMessage;     //Gecko + IE
 	return confirmationMessage;                  //Webkit, Safari, Chrome etc.
