@@ -1856,7 +1856,7 @@ function template_smartphone_recent()
 				//var_dump($topic);
 				//echo "-->";
 
-			        echo '<a style="border-bottom-width: 0;" ',(($topic["is_sticky"]) ? 'class="sticky"' : ''),' href="', $scripturl, '?topic=', $topic['id'], '.msg', $topic['new_from'], ';topicseen;smartphone#new">', ($topic['new'] && $context['user']['is_logged'] ? ' <div class="new"></div>' : '<div></div>'), '<span>',$topic['first_post']['subject'],'</span></a>';
+			        echo '<a style="border-bottom-width: 0;" ',(($topic["is_sticky"]) ? 'class="sticky"' : ''),' href="', $scripturl, '?topic=', $topic['id'], '.msg', $topic['new_from'], ';topicseen;smartphone#new">', (@$topic['new'] && $context['user']['is_logged'] ? ' <div class="new"></div>' : '<div></div>'), '<span>',$topic['first_post']['subject'],'</span></a>';
 
 
 			}
