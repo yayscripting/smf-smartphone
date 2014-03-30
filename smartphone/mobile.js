@@ -202,7 +202,7 @@ window.addEventListener('DOMContentLoaded', function () {
 				a[i].onclick = function () {
 				
 				
-					if(this.className == "forceDekstop"){
+					if(this.className == "forceDesktop"){
 					
 						window.location = this.getAttribute("href");
 						return false;					
