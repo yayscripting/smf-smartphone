@@ -538,3 +538,7 @@ div.quote, div.code, div.phpcode {
 		text-decoration: none;
 
 	}
+
+    div.meaction {
+        color: red;
+    }
