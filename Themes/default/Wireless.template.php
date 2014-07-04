@@ -1487,7 +1487,7 @@ function template_smartphone_post()
 	      		<textarea name="message" style="width: 100%; height: 200px;">', $context['message'], '</textarea>
 	      	</div>
 	        <div class="autoWidth">
-	        	<input type="submit" name="post" value="', $context['submit_label'], '" />
+	        	<input type="submit" name="post" value="', $context['submit_label'], '" accesskey="s" />
 	        </div>
 	      </article>
 	      </header>
@@ -1588,7 +1588,7 @@ function template_smartphone_pm()
 		      			empty($_REQUEST['u']) ? '' : '<input type="hidden" name="u" value="' . $_REQUEST['u'] . '" />', '
 		      		</div>
 		      		<div class="autoWidth">
-		      			<input type="submit" value="', $txt[182], '" />
+		      			<input type="submit" value="', $txt[182], '" accesskey="s" />
 		      		</div>
 		      	</article>
 		      </header>
@@ -1699,7 +1699,7 @@ function template_smartphone_pm()
 						<textarea name="message" style="width: 100%; height: 200px;">', $context['message'], '</textarea>
 					</div>
 					<div class="autoWidth">
-						<input type="submit" value="', $txt[148], '" />
+						<input type="submit" value="', $txt[148], '" accesskey="s" />
 					</div>';
 
 			echo '	</article>
