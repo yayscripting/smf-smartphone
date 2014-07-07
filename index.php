@@ -132,7 +132,7 @@ if (WIRELESS)
 	$modSettings['enableCompressedOutput'] = '0';
 	
 	// !!! Do we want these hard coded?
-	$modSettings['defaultMaxMessages'] = 10;
+	$modSettings['defaultMaxMessages'] = 15;
 	$modSettings['defaultMaxTopics'] = 15;
 
 	// Wireless protocol header.
