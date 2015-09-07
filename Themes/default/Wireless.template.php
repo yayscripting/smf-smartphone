@@ -971,6 +971,8 @@ function template_smartphone_above()
 
 	    <link rel="apple-touch-icon" href="smartphone/smartphone_icon.png">
 	    <link rel="apple-touch-icon" sizes="144x144" href="smartphone/smartphone_icon.png">
+	    
+	    <meta name="theme-color" content="#99CCFF">
 
 	    <meta name="robots" content="noindex, nofollow" />
 
